@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import mondoRobotLogo from "../assets/mondo-robot-logo.png";
 import "../components/Navigation.css";
 import { FaBars } from "react-icons/fa";
 
 const Navigation = () => {
+  const [menu, setMenu] = useState("")
+
+  // event listener for menu
+const menuActivate = () => {
+  setMenu(menu === "" ? "active" : "")
+}
+
   return (
     <nav className="navbar">
       <div className="left-nav">
@@ -27,7 +34,7 @@ const Navigation = () => {
           </li>
         </ul>
       </div>
-      <FaBars className="bars" />
+      <FaBars className={`bars ${menu}`} onClick={menuActivate}/>
     </nav>
   );
 };
