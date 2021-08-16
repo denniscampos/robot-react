@@ -1,33 +1,36 @@
 import axios from "axios";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Robots.css";
 import Navigation from "./Navigation";
 
 const Robots = () => {
-  const url = "https://mondo-robot-art-api.herokuapp.com/auth/register";
+  const [robots, setRobots] = useState(null)
+
+  const url = "https://mondo-robot-art-api.herokuapp.com/robots";
   const API_KEY = process.env.REACT_APP_API_KEY;
   const TOKEN = process.env.REACT_APP_TOKEN;
 
-  const data = {
-    name: "loki",
-    email: "loki@loki.com",
-    password: "loki123456",
-  };
+  useEffect(() => {
+    axios.get(url, {
+      headers: {
+        accept: "application/json",
+        "x-robot-art-api-key": API_KEY,
+        Authorization: "Bearer " + TOKEN,
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      setRobots(res.data)
+    })
+  }, [url, API_KEY, TOKEN])
 
-  axios.post(url, data, {
-    headers: {
-      accept: "application/json",
-      "x-robot-art-api-key": API_KEY,
-      Authorization: "Bearer " + TOKEN,
-      "Content-Type": "application/json",
-    },
-  });
+console.log(robots)
 
   return (
     <div>
       <Navigation />
       <h1>ROBOTS PAGE</h1>
-      <div className="robots-card"></div>
+      <div className="robots-card">
+      </div>
     </div>
   );
 };

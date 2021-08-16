@@ -13,24 +13,24 @@ const menuActivate = () => {
 
   return (
     <nav className="navbar">
-      <div className="left-nav">
+      <div className={`left-nav ${menu}`}>
         <img src={mondoRobotLogo} alt="Logo of Mondo Robot" />
         <ul>
           <li>
-            <a href="">Robots</a>
+            <a className={`navbar-links ${menu}`} href="">Robots</a>
           </li>
           <li>
-            <a href="">Results</a>
+            <a className={`navbar-links ${menu}`} href="">Results</a>
           </li>
         </ul>
       </div>
-      <div className="right-nav">
+      <div className={`right-nav ${menu}`}>
         <ul>
           <li>
-            <a href="">Admin</a>
+            <a className={`navbar-links ${menu}`} href="">Admin</a>
           </li>
           <li>
-            <a href="">Logout</a>
+            <a className={`navbar-links ${menu}`} href="">Logout</a>
           </li>
         </ul>
       </div>

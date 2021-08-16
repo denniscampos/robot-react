@@ -15,6 +15,7 @@
     justify-content: space-between;
     position: relative;
     border-bottom: solid 1px #d8dadb;
+    background: #fff;
   }
 
   .left-nav {
@@ -32,10 +33,18 @@
   .left-nav ul,
   .right-nav ul {
     display: none;
+    width: 100%; 
+    /* margin-top: 40px;  */
+    justify-content: center;
   }
 
-  .active {
-    display: none;
+/* menu activation */
+  .left-nav.active ul,
+  .right-nav.active ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
   }
 }
 
@@ -86,7 +95,7 @@
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1281px) {
   /* big landscape tablets, laptops, and desktops */
 
   .left-nav ul {
@@ -95,7 +104,7 @@
     margin-left: 56px;
   }
 
-  .right-nav {
-    margin-right: 100px;
+  .navbar {
+    padding: 0 100px;
   }
 }
