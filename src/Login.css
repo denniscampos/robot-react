@@ -1,0 +1,117 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 320px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
+  .login-page > img {
+    object-fit: contain;
+    height: 65px;
+    margin-top: 74px;
+  }
+
+  .login-form {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 92px 5px 40px;
+    width: 327px;
+  }
+
+  .email-label {
+    position: absolute;
+    top: -13px;
+    left: 42px;
+    background: white;
+    padding: 0 2px;
+    color: #737475;
+  }
+
+  .password-label {
+    position: absolute;
+    top: 35px;
+    left: 42px;
+    background: white;
+    padding: 0 2px;
+    margin-top: 80px;
+    color: #737475;
+  }
+
+  .login-form > input {
+    display: block;
+    margin: 0px 24px;
+    padding: 20px 20px;
+    border: 1px solid #d8dadb;
+    border-radius: 8px;
+    font-size: 22px;
+  }
+
+  .login-form > input:nth-of-type(2) {
+    margin-top: 60px;
+  }
+
+  .btn {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+    width: 327px;
+    margin: 40px auto;
+  }
+
+  .btn-login,
+  .btn-register {
+    padding: 16px 0;
+    border-radius: 8px;
+    margin: 0 24px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .btn-login {
+    background: #414242;
+    color: #fff;
+    margin-bottom: 16px;
+    border: none;
+    white-space: nowrap;
+  }
+
+  .btn-login:active {
+    background: #737475;
+  }
+
+  .btn-register {
+    background: #fff;
+    color: #414242;
+    border: 2px solid #414242;
+  }
+}
+
+@media (min-width: 768px) {
+  /* big landscape tablets, laptops, and desktops */
+  .login-page {
+    border: 1px solid #d8dadb;
+    border-radius: 8px;
+    box-shadow: 0 23px 30px -9px rgba(0, 0, 0, 0.17);
+    margin: 97px 84px;
+    width: 605px;
+    height: 713px;
+  }
+
+  .login-form,
+  .btn {
+    width: 499px;
+  }
+
+  .btn-login,
+  .btn-register {
+    cursor: pointer;
+  }
+
+  .btn-login:hover {
+    background: #737475;
+  }
+}
