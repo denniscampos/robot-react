@@ -18,10 +18,10 @@ const Login = () => {
     }
   }, []);
 
-  function login() {
+  const login = async () => {
     const userInfo = { email, password };
 
-    axios
+    await axios
       .post(URL, userInfo, {
         headers: {
           accept: "application/json",
@@ -33,7 +33,7 @@ const Login = () => {
       .catch((err) => console.log(err));
 
     history.push("/robots");
-  }
+  };
 
   // gets register page route.
   function handleClick() {
@@ -44,7 +44,7 @@ const Login = () => {
     <div className="register-page">
       <div className="login-page">
         <img src={mondoRobotLogo} alt="Logo of Mondo Robot" />
-        <form className="login-form" action="">
+        <div className="login-form">
           <label className="email-label">Email</label>
           <input
             className="email-input"
@@ -74,7 +74,7 @@ const Login = () => {
               Register
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

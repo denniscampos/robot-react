@@ -15,7 +15,7 @@ const Navigation = () => {
   const history = useHistory();
 
   const logout = () => {
-    //clears out token in local story and routes back to login page.
+    //clears out token in local storage and routes back to login page.
     window.localStorage.clear();
     history.push("/");
   };
