@@ -27,10 +27,10 @@ const Robots = () => {
 
   const robotsInformation = robots?.map((robot, i) => {
     return (
-      <div className="robots-card">
-        <h2>{robot.name}</h2>
-        <img className="robots-img" src={robot.url} alt="" />
-        <button>Vote</button>
+      <div className="robots-card" key={i}>
+        <h2>{robot.name[0].toUpperCase() + robot.name.slice(1)}</h2>
+        <img className="robots-img" src={robot.url} alt="Picture of Robots" />
+        <button className="btn-vote">Vote</button>
       </div>
     );
   });
@@ -38,8 +38,10 @@ const Robots = () => {
   return (
     <div className="robots-page">
       <Navigation />
-      <h1>ROBOTS PAGE</h1>
-      <div className="robots-container">{robotsInformation}</div>
+      <div className="robots">
+      <h1>Robots</h1>
+        <div className="robots-container">{robotsInformation}</div>
+      </div>
     </div>
   );
 };
