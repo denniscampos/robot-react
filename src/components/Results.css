@@ -1,0 +1,8 @@
+.progress-bar {
+    background: #000;
+    margin-top: 10px;
+    border-radius: 20px; 
+    border: 1px solide #000; 
+    height: 20px;
+    width: 250px; 
+}
