@@ -26,12 +26,12 @@ const Navigation = () => {
         <img src={mondoRobotLogo} alt="Logo of Mondo Robot" />
         <ul>
           <li>
-            <a className={`navbar-links ${menu}`} href="">
+            <a className={`navbar-links ${menu}`} href="/robots">
               Robots
             </a>
           </li>
           <li>
-            <a className={`navbar-links ${menu}`} href="">
+            <a className={`navbar-links ${menu}`} href="/results">
               Results
             </a>
           </li>
@@ -40,7 +40,7 @@ const Navigation = () => {
       <div className={`right-nav ${menu}`}>
         <ul>
           <li>
-            <a className={`navbar-links ${menu}`} href="">
+            <a className={`navbar-links ${menu}`} href="/admin">
               Admin
             </a>
           </li>

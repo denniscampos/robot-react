@@ -14,6 +14,21 @@ const Register = () => {
 
   // }, []);
 
+  // return (
+  //   <div>
+  //     <Form
+  //       formFields={[
+  //         <FormField option1={} />,
+  //         <FormField option1={} validation={someRegex} />
+  //       ]}
+  //       buttons={[
+  //         <Button onSubmit={() => { myFunction }} />,
+  //         <Button onSubmit={() => { myFunction }} />,
+  //       ]}
+  //     />
+  //   </div>
+  // )
+
   return (
     <div className="register-page">
       <Form

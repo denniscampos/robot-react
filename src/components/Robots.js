@@ -2,20 +2,23 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "./Robots.css";
 import Navigation from "./Navigation";
+import RobotsPage from "./RobotsPage";
 
 const Robots = () => {
   const [robots, setRobots] = useState(null);
-  const [robot, setVotes] = useState(null);
+  const [vote, setVote] = useState(null);
 
   const url = "https://mondo-robot-art-api.herokuapp.com/robots";
   const voteURL = "https://mondo-robot-art-api.herokuapp.com/votes";
   const API_KEY = process.env.REACT_APP_API_KEY;
-  const TOKEN = process.env.REACT_APP_TOKEN;
 
   // grab user token
   const userToken = window.localStorage.getItem("user-token");
 
-  //grab robots
+  // grab vote id
+  const voteId = localStorage.getItem("voter-id");
+
+  // grab robots
   useEffect(() => {
     axios
       .get(url, {
@@ -29,54 +32,68 @@ const Robots = () => {
       .then((res) => {
         setRobots(res.data);
       });
-  }, [url, API_KEY, TOKEN]);
+  }, [url, API_KEY, userToken, robots]);
 
-  //create votes
-  function vote(e) {
-    e.preventDefault();
+  const createVote = async (e, robotId) => {
+    try {
+      e.preventDefault();
 
-    // grabs ID
-    const robotVotes = { robot };
+      //set button state to "saving vote..."
 
-    axios
-      .post(voteURL, robotVotes, {
-        headers: {
-          accept: "application/json",
-          Authorization: "Bearer " + userToken,
-          "Content-Type": "application/json",
-        },
-      })
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
-  }
+      // check local storage and see if there is a "voter-id"
+      // if there is, call delete vote put that voter-id as a query string parameter
+      // set the other robot's botton who's vote was deleted to back to active -- THIS IS CHALLENGING (need one component to talk its sibling) (lift your state up) (voter-id)
+
+      const response = await axios.post(
+        voteURL,
+        { robot: robotId },
+        {
+          headers: {
+            accept: "application/json",
+            Authorization: "Bearer " + userToken,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      localStorage.setItem("voter-id", response.data.id);
+
+      // set button state to "vote casted"
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // const robotsInformation = robots?.map((robot, i) => {
+  //   return (
+  //     <Robot name={robot.name} voter-id={voter-id} />
+  //   )
+  // }
 
   const robotsInformation = robots?.map((robot, i) => {
     return (
       <div className="robots-card" key={i}>
         <h2>{robot.name[0].toUpperCase() + robot.name.slice(1)}</h2>
         <img className="robots-img" src={robot.url} alt="Robots" />
-        <form onSubmit={vote}>
-          <button
-            className="btn-vote"
-            onClick={() => {
-              setVotes(robot.id);
-            }}
-          >
-            Vote
-          </button>
-        </form>
+        <button
+          className="btn-vote"
+          onClick={(e) => {
+            createVote(e, robot.id);
+          }}
+        >
+          Vote
+        </button>
       </div>
     );
   });
 
   return (
-    <div className="robots-page">
+    <>
       <Navigation />
-      <div className="robots">
-        <h1>Robots</h1>
-        <div className="robots-container">{robotsInformation}</div>
+      <div>
+        <RobotsPage title="Robots" robotsInformation={robotsInformation} />
       </div>
-    </div>
+    </>
   );
 };
 

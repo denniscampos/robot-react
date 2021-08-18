@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Login.css";
 import mondoRobotLogo from "./assets/mondo-robot-logo.png";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from "./AuthContext";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(false);
+  const [password, setPassword] = useState(false);
+  // const { setIsAuthenticated } = useContext(AuthContext);
 
   const URL = "https://mondo-robot-art-api.herokuapp.com/auth/session";
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -16,10 +18,13 @@ const Login = () => {
     if (localStorage.getItem("user-token")) {
       history.push("/robots");
     }
-  }, []);
+  }, [history]);
+
+  localStorage.getItem("user-token");
 
   const login = async () => {
     const userInfo = { email, password };
+    // localStorage.getItem("user-token");
 
     await axios
       .post(URL, userInfo, {
@@ -29,10 +34,18 @@ const Login = () => {
           "Content-Type": "application/json",
         },
       })
-      .then((res) => localStorage.setItem("user-token", res.data.token))
-      .catch((err) => console.log(err));
-
-    history.push("/robots");
+      .then((res) => {
+        localStorage.setItem("user-token", res.data.token);
+        // setIsAuthenticated(true);
+        history.push("/robots");
+      })
+      .catch((err) => {
+        // if error, redirect user to error page
+        if (err.response.status) {
+          history.push("/error");
+        }
+        console.log(err);
+      });
   };
 
   // gets register page route.
