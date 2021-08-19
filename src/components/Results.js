@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Navigation from "./Navigation";
+import VotingResults from "./VotingResults";
 import "./Results.css";
 
 const Results = () => {
@@ -46,8 +47,8 @@ const Results = () => {
   }, [url, API_KEY, userToken]);
 
   const getLength = (id) => {
-    return userVotes?.filter(item=>item.robot === id).length
-  }
+    return userVotes?.filter((item) => item.robot === id).length;
+  };
 
   const robotsInformation = robots?.map((robot, i) => {
     return (
@@ -55,7 +56,8 @@ const Results = () => {
         <h2>{robot.name[0].toUpperCase() + robot.name.slice(1)}</h2>
         <img className="robots-img" src={robot.url} alt="Robots" />
         <span className="vote-count">{getLength(robot.id)}/55</span>
-        <span className="progress-bar"></span>
+        {/* <span className="progress-bar"></span> */}
+        <VotingResults done={getLength(robot.id)} />
       </div>
     );
   });

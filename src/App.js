@@ -5,7 +5,7 @@ import Register from "./Register";
 import Robots from "./components/Robots";
 import Results from "./components/Results";
 import Error from "./error/Error";
-import Admin from "./components/Admin";
+import Admin from "./Admin";
 import "./App.css";
 import ProtectedRoute from "./ProtectedRoute";
 

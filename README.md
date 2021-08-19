@@ -1,3 +1,11 @@
+# WHO WILL TAKE OVER AMERICA?
+
+We now have a situation where humans are not allowed to take over the world. Now is your chance to choose the best robot to lead our country.
+
+# ROBOTS PERSONALITY
+
+Wall-E:
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

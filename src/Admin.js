@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { BsUpload } from "react-icons/bs";
 import "./Admin.css";
-import Navigation from "./Navigation";
+import Navigation from "./components/Navigation";
 
 const Admin = () => {
   const [robots, setRobots] = useState(null);
@@ -103,7 +103,8 @@ const Admin = () => {
               />
               <div className="upload-container">
                 <label htmlFor="myInput">
-                  <BsUpload className="upload-icon" type="upload" /> <span>Select File to Upload</span>
+                  <BsUpload className="upload-icon" type="upload" />{" "}
+                  <span>Select File to Upload</span>
                 </label>
                 <input
                   id="myInput"
@@ -121,8 +122,12 @@ const Admin = () => {
                 onChange={(e) => setImage(e.target.files[0])}
               /> */}
               <div className="admin-btn">
-                <button className="btn-clear" onClick={clearForm}>Clear</button>
-                <button className="btn-add" onClick={uploadImage}>Add Robot</button>
+                <button className="btn-clear" onClick={clearForm}>
+                  Clear
+                </button>
+                <button className="btn-add" onClick={uploadImage}>
+                  Add Robot
+                </button>
               </div>
             </div>
             {robotsInformation}
