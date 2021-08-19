@@ -16,7 +16,7 @@ const Robots = () => {
   const userToken = window.localStorage.getItem("user-token");
 
   // grab vote id
-  window.localStorage.getItem("voter-id");
+  localStorage.getItem("voter-id");
 
   // grab user id
   localStorage.getItem("user-id");
@@ -35,7 +35,7 @@ const Robots = () => {
       .then((res) => {
         setRobots(res.data);
       });
-  }, [url, API_KEY, userToken, robots]);
+  }, [url, API_KEY, userToken]);
 
   const createVote = async (e, robotId) => {
     try {
@@ -59,8 +59,12 @@ const Robots = () => {
         }
       );
 
+    
       localStorage.setItem("voter-id", response.data.id);
       localStorage.setItem("user-id", response.data.user);
+      localStorage.setItem("robot-id", response.data.robot);
+
+
 
       // set button state to "vote casted"
     } catch (err) {
@@ -68,11 +72,6 @@ const Robots = () => {
     }
   };
 
-  // const robotsInformation = robots?.map((robot, i) => {
-  //   return (
-  //     <Robot name={robot.name} voter-id={voter-id} />
-  //   )
-  // }
 
   const robotsInformation = robots?.map((robot, i) => {
     return <RobotsCard key={i} robot={robot} voteFor={createVote} />;

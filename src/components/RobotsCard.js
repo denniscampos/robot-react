@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 
-const RobotsCard = ({ robot, i, voteFor }) => {
+const RobotsCard = ({ robot, i, voteFor,buttonTest }) => {
   const [disabled, setDisabled] = useState(false);
+  const [voteHere, setVoteHere] = useState(null);
 
-  //   function checkIfUserVoted() {
-  //     if (localStorage.getItem("user-token")) {
-  //       return "vote-casted";
-  //     } else {
-  //       return "Vote";
-  //     }
-  //   }
+  const userId = localStorage.getItem("user-id");
+  const robotId = localStorage.getItem("robot-id");
+
 
   return (
     <div className="robots-card" key={i}>

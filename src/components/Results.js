@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Navigation from "./Navigation";
-import _ from "lodash";
 import "./Results.css";
 
 const Results = () => {
@@ -46,15 +45,16 @@ const Results = () => {
       });
   }, [url, API_KEY, userToken]);
 
-  // const testing = _.groupBy(userVotes, "robot");
-  // numberOfVotes = testing.robot.length
+  const getLength = (id) => {
+    return userVotes?.filter(item=>item.robot === id).length
+  }
 
   const robotsInformation = robots?.map((robot, i) => {
     return (
       <div className="robots-card" key={i}>
         <h2>{robot.name[0].toUpperCase() + robot.name.slice(1)}</h2>
         <img className="robots-img" src={robot.url} alt="Robots" />
-        <span className="vote-count">0/55</span>
+        <span className="vote-count">{getLength(robot.id)}/55</span>
         <span className="progress-bar"></span>
       </div>
     );

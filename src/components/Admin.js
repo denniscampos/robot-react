@@ -1,18 +1,59 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { BsUpload } from "react-icons/bs";
 import "./Admin.css";
 import Navigation from "./Navigation";
 
 const Admin = () => {
   const [robots, setRobots] = useState(null);
+  const [image, setImage] = useState(null);
+  const [imageName, setImageName] = useState("");
 
   const url = "https://mondo-robot-art-api.herokuapp.com/robots";
   const API_KEY = process.env.REACT_APP_API_KEY;
+  const history = useHistory();
 
   // grab user token
   const userToken = window.localStorage.getItem("user-token");
 
-  // grab robots
+  // upload image
+  function uploadImage() {
+    let bodyFormData = new FormData();
+    bodyFormData.append("name", imageName);
+    bodyFormData.append("image", image);
+
+    axios
+      .post(url, bodyFormData, {
+        headers: {
+          accept: "application/json",
+          Authorization: "Bearer " + userToken,
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  }
+
+  //clear upload form
+  const clearForm = () => {
+    setImageName("");
+    setImage(null);
+  };
+
+  // Delete Robot
+  const deleteRobot = (id) => {
+    axios
+      .delete(`${url}/${id}`, {
+        headers: {
+          Authorization: "Bearer " + userToken,
+        },
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
+  // get robots
   useEffect(() => {
     axios
       .get(url, {
@@ -35,7 +76,9 @@ const Admin = () => {
         <img className="robots-img" src={robot.url} alt="Robots" />
         <div className="btn-admin">
           <button className="btn-edit">Edit</button>
-          <button className="btn-delete">Delete</button>
+          <button className="btn-delete" onClick={() => deleteRobot(robot.id)}>
+            Delete
+          </button>
         </div>
       </div>
     );
@@ -53,11 +96,33 @@ const Admin = () => {
               <label className="name-label" htmlFor="name">
                 Name
               </label>
-              <input className="name-input" type="Name" />
-              <button className="btn-upload">Select image to upload</button>
+              <input
+                className="name-input"
+                type="Name"
+                onChange={(e) => setImageName(e.target.value)}
+              />
+              <div className="upload-container">
+                <label htmlFor="myInput">
+                  <BsUpload className="upload-icon" type="upload" /> <span>Select File to Upload</span>
+                </label>
+                <input
+                  id="myInput"
+                  className="btn-upload"
+                  name="file"
+                  type={"file"}
+                  onChange={(e) => setImage(e.target.files[0])}
+                />
+              </div>
+
+              {/* <input
+                className="btn-upload"
+                type="file"
+                name="file"
+                onChange={(e) => setImage(e.target.files[0])}
+              /> */}
               <div className="admin-btn">
-                <button>Clear</button>
-                <button>Add Robot</button>
+                <button className="btn-clear" onClick={clearForm}>Clear</button>
+                <button className="btn-add" onClick={uploadImage}>Add Robot</button>
               </div>
             </div>
             {robotsInformation}

@@ -31,6 +31,8 @@ h2 {
   box-shadow: 0px 9px 15px -9px rgba(0, 0, 0, 0.12);
 }
 
+
+
 .robots-img {
   width: 349px;
   height: 321px;
@@ -63,6 +65,11 @@ h2 {
   cursor: pointer;
 }
 
+.admin-card h2 {
+  font-size: 1.5em;
+  margin: 10px 0 ;
+}
+
 .admin-card {
   display: flex;
   position: relative;
@@ -78,6 +85,15 @@ h2 {
   box-shadow: 0px 9px 15px -9px rgba(0, 0, 0, 0.12);
 }
 
+.admin-card > label {
+  color: #737475;
+  background: #fff;
+  position: absolute;
+  top: 98px;
+  left: 80px;
+  width: auto;
+}
+
 .name-label {
   top: 218px;
   left: 64px;
@@ -88,19 +104,56 @@ h2 {
 
 .name-input {
   display: block;
-  margin: 0px 24px;
+  
+  margin: 20px 24px;
   padding: 20px 20px;
   border: 1px solid #d8dadb;
   border-radius: 8px;
   font-size: 22px;
 }
 
-.btn-upload {
+.upload-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: #eceef0;
   width: 350px;
   height: 208px;
   border: 2px dashed #737475;
   border-radius: 8px;
+}
+
+.upload-icon {
+  display:flex;
+  margin-left: 50px;
+  margin-bottom: 10px;
+  font-size: 50px; 
+  cursor: pointer;
+}
+
+.btn-upload {
+  display: none;
+}
+
+.btn-clear {
+  background: #fff;
+  color: #414242; 
+  font-size: 1.6rem;
+  text-decoration: underline;
+  border: none;
+}
+
+.btn-add {
+  background: #414242;
+  color: #fff;
+  border: none;
+  margin-right: 10px;
+  margin-left: 50px; 
+  border-radius: 8px;
+  padding: 16px 55px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .admin-btn {
