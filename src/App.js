@@ -4,7 +4,7 @@ import Register from "./Register";
 // import Navigation from "./components/Navigation";
 import Robots from "./components/Robots";
 import Results from "./components/Results";
-import Error from "./components/Error";
+import Error from "./error/Error";
 import Admin from "./components/Admin";
 import "./App.css";
 import ProtectedRoute from "./ProtectedRoute";

@@ -8,6 +8,8 @@ const Button = ({ className, Register }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [nameError, setNameError] = useState({});
+  const [emailError, setEmailError] = useState({});
 
   const URL = "https://mondo-robot-art-api.herokuapp.com/auth/register";
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -27,13 +29,16 @@ const Button = ({ className, Register }) => {
       })
       .then((res) => console.log(res))
       .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-    history.push("/");
+      .catch((err) => {
+        if (err.response.status) {
+          history.push("/error");
+        }
+      });
 
-    console.log(user);
+    history.push("/");
   }
 
-  // goes register page route.
+  // goes login page route.
   function handleClick() {
     history.push("/");
   }
@@ -59,7 +64,7 @@ const Button = ({ className, Register }) => {
             className="register-email-input"
             type="email"
             name="email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
           <label className="register-password-label" htmlFor="password">
             Password
@@ -71,12 +76,18 @@ const Button = ({ className, Register }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <div className="btn">
-            <button onClick={register} className="register-btn">
-              Register
-            </button>
-            <button onClick={handleClick} className="login-btn">
-              Back to Login
-            </button>
+            <input
+              className="register-btn"
+              type="submit"
+              value="Register"
+              onClick={register}
+            />
+            <input
+              onClick={handleClick}
+              className="login-btn"
+              type="submit"
+              value="Back to Login"
+            />
           </div>
         </form>
       </div>
