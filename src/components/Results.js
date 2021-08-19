@@ -1,10 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import Robots from "../components/Robots";
 import Navigation from "./Navigation";
-import RobotsPage from "./RobotsPage";
-import _ from 'lodash';
-import chunk from 'lodash/chunk';
+import _ from "lodash";
 import "./Results.css";
 
 const Results = () => {
@@ -29,7 +26,7 @@ const Results = () => {
       })
       .then((res) => setUserVotes(res.data))
       .catch((err) => console.log(err));
-  }, [setUserVotes]);
+  }, [setUserVotes, userToken]);
 
   // console.log(userVotes.length)
 
@@ -49,17 +46,10 @@ const Results = () => {
       });
   }, [url, API_KEY, userToken]);
 
-  const testing = _.groupBy(userVotes, 'robot')
+  // const testing = _.groupBy(userVotes, "robot");
   // numberOfVotes = testing.robot.length
 
-  const votes = userVotes?.map((vote, i) => {
-    return (
-      <span>{Object.keys(vote.robot).length}</span>
-    )
-  })
-
   const robotsInformation = robots?.map((robot, i) => {
-
     return (
       <div className="robots-card" key={i}>
         <h2>{robot.name[0].toUpperCase() + robot.name.slice(1)}</h2>

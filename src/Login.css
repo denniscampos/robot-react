@@ -6,6 +6,13 @@
   background: #fff;
 }
 
+.register-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 320px) {
   /* smartphones, iPhone, portrait 480x320 phones */
   .login-page > img {

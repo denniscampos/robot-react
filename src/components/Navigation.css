@@ -1,5 +1,3 @@
-
-
 @media (min-width: 320px) {
   /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
   .bars {
@@ -35,22 +33,22 @@
   .left-nav ul,
   .right-nav ul {
     display: none;
-    width: 100%; 
+    width: 100%;
     /* margin-top: 40px;  */
     justify-content: center;
   }
 
   .navbar-mobile {
-    display:flex;
+    display: flex;
     justify-content: space-between;
-    width: 100%; 
+    width: 100%;
   }
 
-  .right-nav{
+  .right-nav {
     justify-content: flex-end;
   }
 
-/* menu activation */
+  /* menu activation */
   .left-nav.active ul,
   .right-nav.active ul {
     display: flex;
@@ -75,10 +73,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: fill;
-    position:fixed;
+    width: stretch;
+    position: fixed;
     height: 100vh;
     background: #414242;
+    z-index: 1;
   }
 
   .navbar.active {
@@ -87,8 +86,8 @@
 
   .bars.active {
     color: white;
+    z-index: 5;
   }
-
 }
 
 @media (min-width: 801px) {

@@ -1,46 +1,87 @@
-// import axios from "axios";
-import React from "react";
-import Form from "./Form";
+import axios from "axios";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import mondoRobotLogo from "./assets/mondo-robot-logo.png";
+import "./Register.css";
 
-const Register = () => {
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
+const Button = ({ className, Register }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  // const URL = "https://mondo-robot-art-api.herokuapp.com/auth/register";
-  // const API_KEY = process.env.REACT_APP_API_KEY;
+  const URL = "https://mondo-robot-art-api.herokuapp.com/auth/register";
+  const API_KEY = process.env.REACT_APP_API_KEY;
+  const history = useHistory();
 
-  // useEffect(() => {
+  function register(e) {
+    e.preventDefault();
 
-  // }, []);
+    const user = { name, email, password };
+    axios
+      .post(URL, user, {
+        headers: {
+          accept: "application/json",
+          "x-robot-art-api-key": API_KEY,
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => console.log(res))
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+    history.push("/");
 
-  // return (
-  //   <div>
-  //     <Form
-  //       formFields={[
-  //         <FormField option1={} />,
-  //         <FormField option1={} validation={someRegex} />
-  //       ]}
-  //       buttons={[
-  //         <Button onSubmit={() => { myFunction }} />,
-  //         <Button onSubmit={() => { myFunction }} />,
-  //       ]}
-  //     />
-  //   </div>
-  // )
+    console.log(user);
+  }
+
+  // goes register page route.
+  function handleClick() {
+    history.push("/");
+  }
 
   return (
     <div className="register-page">
-      <Form
-        label1="Full Name"
-        label2="Email"
-        type="email"
-        password="a name"
-        button1="Register"
-        button2="Back to Login"
-      />
+      <div className="login-page">
+        <img src={mondoRobotLogo} alt="Logo of Mondo Robot" />
+        <form className="login-form">
+          <label className="register-name-label" htmlFor="Name">
+            Name
+          </label>
+          <input
+            className="register-name-input"
+            type="name"
+            name="name"
+            onChange={(e) => setName(e.target.value)}
+          />
+          <label className="register-email-label" htmlFor="email">
+            Email
+          </label>
+          <input
+            className="register-email-input"
+            type="email"
+            name="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <label className="register-password-label" htmlFor="password">
+            Password
+          </label>
+          <input
+            className="register-password-input"
+            type="password"
+            name="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div className="btn">
+            <button onClick={register} className="register-btn">
+              Register
+            </button>
+            <button onClick={handleClick} className="login-btn">
+              Back to Login
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
 
-export default Register;
+export default Button;

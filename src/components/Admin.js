@@ -33,9 +33,9 @@ const Admin = () => {
       <div className="robots-card" key={i}>
         <h2>{robot.name[0].toUpperCase() + robot.name.slice(1)}</h2>
         <img className="robots-img" src={robot.url} alt="Robots" />
-        <div className="btn">
-          <button className="btn-vote">Edit</button>
-          <button className="btn-vote">Delete</button>
+        <div className="btn-admin">
+          <button className="btn-edit">Edit</button>
+          <button className="btn-delete">Delete</button>
         </div>
       </div>
     );
@@ -47,7 +47,21 @@ const Admin = () => {
       <div className="robots-page">
         <div className="robots">
           <h1>Admin</h1>
-          <div className="robots-container">{robotsInformation}</div>
+          <div className="robots-container">
+            <div className="admin-card">
+              <h2>Add Robot</h2>
+              <label className="name-label" htmlFor="name">
+                Name
+              </label>
+              <input className="name-input" type="Name" />
+              <button className="btn-upload">Select image to upload</button>
+              <div className="admin-btn">
+                <button>Clear</button>
+                <button>Add Robot</button>
+              </div>
+            </div>
+            {robotsInformation}
+          </div>
         </div>
       </div>
     </>

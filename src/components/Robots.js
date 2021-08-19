@@ -3,10 +3,10 @@ import React, { useState, useEffect } from "react";
 import "./Robots.css";
 import Navigation from "./Navigation";
 import RobotsPage from "./RobotsPage";
+import RobotsCard from "./RobotsCard";
 
 const Robots = () => {
   const [robots, setRobots] = useState(null);
-  const [vote, setVote] = useState(null);
 
   const url = "https://mondo-robot-art-api.herokuapp.com/robots";
   const voteURL = "https://mondo-robot-art-api.herokuapp.com/votes";
@@ -16,7 +16,10 @@ const Robots = () => {
   const userToken = window.localStorage.getItem("user-token");
 
   // grab vote id
-  const voteId = localStorage.getItem("voter-id");
+  window.localStorage.getItem("voter-id");
+
+  // grab user id
+  localStorage.getItem("user-id");
 
   // grab robots
   useEffect(() => {
@@ -57,6 +60,7 @@ const Robots = () => {
       );
 
       localStorage.setItem("voter-id", response.data.id);
+      localStorage.setItem("user-id", response.data.user);
 
       // set button state to "vote casted"
     } catch (err) {
@@ -71,20 +75,7 @@ const Robots = () => {
   // }
 
   const robotsInformation = robots?.map((robot, i) => {
-    return (
-      <div className="robots-card" key={i}>
-        <h2>{robot.name[0].toUpperCase() + robot.name.slice(1)}</h2>
-        <img className="robots-img" src={robot.url} alt="Robots" />
-        <button
-          className="btn-vote"
-          onClick={(e) => {
-            createVote(e, robot.id);
-          }}
-        >
-          Vote
-        </button>
-      </div>
-    );
+    return <RobotsCard key={i} robot={robot} voteFor={createVote} />;
   });
 
   return (

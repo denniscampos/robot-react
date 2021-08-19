@@ -1,11 +1,3 @@
-h1 {
-  color: #414242;
-  font-size: 3rem;
-  margin-top: 64px;
-  margin-bottom: 64px;
-  margin-left: 118px;
-}
-
 h2 {
   margin-top: 40px;
   color: #414242;
@@ -45,19 +37,73 @@ h2 {
   margin-bottom: 20px;
 }
 
-.btn-vote {
+.btn-admin {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-edit {
   background: #414242;
   color: #fff;
   border: none;
+  margin-right: 10px;
+}
+
+.btn-delete {
+  background: #fff;
+  border: solid 2px #414242;
   border-radius: 8px;
-  margin-top: 36px;
-  margin-bottom: 10px;
+}
+
+.btn-edit,
+.btn-delete {
+  border-radius: 8px;
   padding: 16px 55px;
   font-weight: bold;
   cursor: pointer;
 }
 
-/* .btn {
+.admin-card {
   display: flex;
-  width: 30%;
-} */
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  margin: 10px;
+  width: 397px;
+  height: 519px;
+  border: 1px solid #d8dadb;
+  border-radius: 8px;
+  box-shadow: 0px 9px 15px -9px rgba(0, 0, 0, 0.12);
+}
+
+.name-label {
+  top: 218px;
+  left: 64px;
+  background: white;
+  padding: 0 2px;
+  color: #737475;
+}
+
+.name-input {
+  display: block;
+  margin: 0px 24px;
+  padding: 20px 20px;
+  border: 1px solid #d8dadb;
+  border-radius: 8px;
+  font-size: 22px;
+}
+
+.btn-upload {
+  background: #eceef0;
+  width: 350px;
+  height: 208px;
+  border: 2px dashed #737475;
+  border-radius: 8px;
+}
+
+.admin-btn {
+  display: flex;
+  margin-top: 20px;
+}

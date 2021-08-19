@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
 import mondoRobotLogo from "./assets/mondo-robot-logo.png";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { AuthContext } from "./AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState(false);
@@ -24,7 +23,6 @@ const Login = () => {
 
   const login = async () => {
     const userInfo = { email, password };
-    // localStorage.getItem("user-token");
 
     await axios
       .post(URL, userInfo, {
@@ -48,7 +46,7 @@ const Login = () => {
       });
   };
 
-  // gets register page route.
+  // goes register page route.
   function handleClick() {
     history.push("/register");
   }

@@ -1,5 +1,4 @@
 import React from "react";
-import Navigation from "../components/Navigation";
 
 const RobotsPage = ({ title, robotsInformation }) => {
   return (
@@ -13,13 +12,3 @@ const RobotsPage = ({ title, robotsInformation }) => {
 };
 
 export default RobotsPage;
-
-{
-  /* <div className="robots-page">
-<Navigation />
-<div className="robots">
-  <h1>Robots</h1>
-  <div className="robots-container">{robotsInformation}</div>
-</div>
-</div> */
-}

@@ -1,22 +1,7 @@
-h1 {
-  color: #414242;
-  font-size: 3rem;
-  margin-top: 64px;
-  margin-bottom: 64px;
-  margin-left: 118px;
-}
-
 h2 {
   margin-top: 40px;
   color: #414242;
 }
-
-/* .robots {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
 
 .robots-container {
   display: flex;
@@ -31,10 +16,11 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #FFF;
+  background: #fff;
   margin: 10px;
   width: 397px;
   height: 519px;
+  border: 1px solid #d8dadb;
   border-radius: 8px;
   box-shadow: 0px 9px 15px -9px rgba(0, 0, 0, 0.12);
 }
@@ -55,4 +41,34 @@ h2 {
   padding: 16px 55px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.btn-vote-casted {
+  background: #d8dadb;
+  color: #414242;
+  border: none;
+  border-radius: 8px;
+  margin-top: 36px;
+  margin-bottom: 10px;
+  padding: 16px 55px;
+  font-weight: bold;
+  /* pointer-events: none;  */
+  cursor: not-allowed;
+}
+
+@media (min-width: 320px) {
+  h1 {
+    color: #414242;
+    font-size: 3rem;
+    margin-top: 64px;
+    margin-bottom: 64px;
+    margin-left: 30px;
+  }
+}
+
+@media (min-width: 500px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  h1 {
+    margin-left: 116px;
+  }
 }

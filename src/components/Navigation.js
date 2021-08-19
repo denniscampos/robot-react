@@ -50,7 +50,11 @@ const Navigation = () => {
               </a>
             </li>
             <li>
-              <a className={`navbar-links ${menu}`} href="" onClick={logout}>
+              <a
+                className={`navbar-links ${menu}`}
+                href="#logout"
+                onClick={logout}
+              >
                 Logout
               </a>
             </li>
