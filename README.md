@@ -26,7 +26,7 @@ We now have a situation where humans are not allowed to take over the world. Now
 
 Thank you so much for taking the time to check out the project!
 
-To run it locally please download the source code and run `npm install. ` in your CLI
+To run it locally please download the source code and run `npm install.` in your CLI
 create a `.env` file and add the `API KEY.`
 
 Start the server - `npm run start`
