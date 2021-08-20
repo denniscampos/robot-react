@@ -35,7 +35,7 @@ const RobotsCard = ({ robot, i, currentRobot, setCurrentRobot }) => {
 
   return (
     <div className="robots-card" key={i}>
-      <h2>{robot.name[0].toUpperCase() + robot.name.slice(1)}</h2>
+      <h2>{robot.name}</h2>
       <img className="robots-img" src={robot.url} alt="Robots" />
       <button
         className={!buttonEnabled ? "btn-vote-casted" : "btn-vote"}

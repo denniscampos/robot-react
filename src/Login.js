@@ -7,7 +7,6 @@ import axios from "axios";
 const Login = () => {
   const [email, setEmail] = useState(false);
   const [password, setPassword] = useState(false);
-  // const { setIsAuthenticated } = useContext(AuthContext);
 
   const URL = "https://mondo-robot-art-api.herokuapp.com/auth/session";
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -39,7 +38,6 @@ const Login = () => {
         history.push("/robots");
       })
       .catch((err) => {
-        // if error, redirect user to error page
         if (err.response.status) {
           history.push("/error");
         }

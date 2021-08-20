@@ -3,13 +3,6 @@ h2 {
   color: #414242;
 }
 
-/* .robots {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  } */
-
 .robots-container {
   display: flex;
   flex-wrap: wrap;
@@ -139,6 +132,7 @@ h2 {
   font-size: 1.6rem;
   text-decoration: underline;
   border: none;
+  cursor: pointer;
 }
 
 .btn-add {

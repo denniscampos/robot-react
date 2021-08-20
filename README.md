@@ -1,78 +1,57 @@
-# WHO WILL TAKE OVER AMERICA?
+# WHO WILL TAKE OVER THE COUNTRY?
 
 We now have a situation where humans are not allowed to take over the world. Now is your chance to choose the best robot to lead our country.
 
-# ROBOTS PERSONALITY
+## ROBOT PERSONALITY
 
-Wall-E:
+1. Wall-E: Known as the Waste Allocation Load Lifter - Earth Class. A titular protagonist. Known as the waste-collector drone.
 
-# Getting Started with Create React App
+   ![wall-e robot](https://media.giphy.com/media/cC4jUAUPDQ91K/giphy.gif?cid=ecf05e47qrgcuc1wcswo4b22x7bvnh6q4u35flkdmnbqm3up&rid=giphy.gif&ct=g)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+2. Bender: Bender was created as a bending unit, designed to bend steel girders with his bare hands. He runs on alcohol and smokes because it "makes him look cool." He is very rude and often makes fun of others around him, even close friends.
 
-## Available Scripts
+   ![bender robot](https://media.giphy.com/media/mIZ9rPeMKefm0/giphy.gif?cid=ecf05e47fch1xps2dqzweigfp9uea0t7npv77dxta7fmg5vq&rid=giphy.gif&ct=g)
 
-In the project directory, you can run:
+3. Megazord: The combination of six Dinozords: Tyrannosaurus, Mastodon, Triceratops, Sabertooth, Tiger, and Pterodactyl....enough said.
 
-### `npm start`
+   ![megazord robot](https://media.giphy.com/media/3ohzdLq99iKC1H1umI/giphy.gif?cid=ecf05e47365qzxkvr10tt6iljs05ny8gn7lt54zwejvptnpy&rid=giphy.gif&ct=g)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. R2D2: Adventurous and independent often finding himself in pivotal moments in galactic history, his bravery and ingenuity saved the galaxy on numerous occasions..
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+   ![R2D2 robot](https://media.giphy.com/media/bq6F8QYqBU7Yc/giphy.gif?cid=ecf05e47xtkii3ngbguehyk9a18vw2y9nj8vx01kjg57mey4&rid=giphy.gif&ct=g)
 
-### `npm test`
+**And more!!! Log in to find out.**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ROBOT-REACT
 
-### `npm run build`
+Thank you so much for taking the time to check out the project!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run it locally please download the source code and run `npm install. ` in your CLI
+create a `.env` file and add the `API KEY.`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Start the server - `npm run start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You should be set to go!
 
-### `npm run eject`
+## Live-Demo
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+https://robot-react-mocha.vercel.app/
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![login pic](https://media.giphy.com/media/LhTLg5habfUn81CIaM/giphy.gif)
+![admin pic](https://media.giphy.com/media/SwYuSLH7MjY2UKWCZN/giphy.gif?cid=790b7611be44c2eca903eb544aae901ac02cef94006451b8&rid=giphy.gif&ct=g)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Mobile Responsive
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The application is mobile-responsive for all screens!
 
-## Learn More
+![mobile responsive](https://media.giphy.com/media/p3ERfukybzXCUXF7tk/giphy.gif?cid=790b7611feadf4bba924e0abd62accc6e266972a997bb7f4&rid=giphy.gif&ct=g)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Brower Tested
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Safari, Google Chrome, Brave, Firefox
 
-### Code Splitting
+### OS tested
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Windows 10
+MAC OS
+iPad OS

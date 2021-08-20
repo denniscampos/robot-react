@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-// import { useHistory } from "react-router-dom";
 import { BsUpload } from "react-icons/bs";
 import "./Admin.css";
 import Navigation from "./components/Navigation";
@@ -12,12 +11,9 @@ const Admin = () => {
 
   const url = "https://mondo-robot-art-api.herokuapp.com/robots";
   const API_KEY = process.env.REACT_APP_API_KEY;
-  // const history = useHistory();
 
-  // grab user token
   const userToken = window.localStorage.getItem("user-token");
 
-  // upload image
   const uploadImage = async () => {
     let bodyFormData = new FormData();
     bodyFormData.append("name", imageName);
@@ -37,13 +33,11 @@ const Admin = () => {
     window.location.reload();
   };
 
-  //clear upload form
   const clearForm = () => {
     setImageName("");
     setImage(null);
   };
 
-  // Delete Robot
   const deleteRobot = async (id) => {
     await axios
       .delete(`${url}/${id}`, {
@@ -76,7 +70,7 @@ const Admin = () => {
   const robotsInformation = robots?.map((robot, i) => {
     return (
       <div className="robots-card" key={i}>
-        <h2>{robot.name[0].toUpperCase() + robot.name.slice(1)}</h2>
+        <h2>{robot.name}</h2>
         <img className="robots-img" src={robot.url} alt="Robots" />
         <div className="btn-admin">
           <button className="btn-edit">Edit</button>
@@ -97,13 +91,13 @@ const Admin = () => {
           <div className="robots-container">
             <div className="admin-card">
               <h2>Add Robot</h2>
-
               <label className="name-label" htmlFor="name">
                 Name
               </label>
               <input
                 className="name-input"
                 type="Name"
+                required
                 onChange={(e) => setImageName(e.target.value)}
               />
               <div className="upload-container">
@@ -120,10 +114,10 @@ const Admin = () => {
                 />
               </div>
               <div className="admin-btn">
-                <button className="btn-clear" onClick={clearForm}>
+                <button type="reset" className="btn-clear" onClick={clearForm}>
                   Clear
                 </button>
-                <button className="btn-add" onClick={uploadImage}>
+                <button type="submit" className="btn-add" onClick={uploadImage}>
                   Add Robot
                 </button>
               </div>
