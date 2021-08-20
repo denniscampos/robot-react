@@ -8,14 +8,12 @@ const Button = ({ className, Register }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [nameError, setNameError] = useState({});
-  const [emailError, setEmailError] = useState({});
 
   const URL = "https://mondo-robot-art-api.herokuapp.com/auth/register";
   const API_KEY = process.env.REACT_APP_API_KEY;
   const history = useHistory();
 
-  function register(e) {
+  const register = (e) => {
     e.preventDefault();
 
     const user = { name, email, password };
@@ -36,12 +34,12 @@ const Button = ({ className, Register }) => {
       });
 
     history.push("/");
-  }
+  };
 
   // goes login page route.
-  function handleClick() {
+  const handleClick = () => {
     history.push("/");
-  }
+  };
 
   return (
     <div className="register-page">
@@ -64,7 +62,7 @@ const Button = ({ className, Register }) => {
             className="register-email-input"
             type="email"
             name="email"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label className="register-password-label" htmlFor="password">
             Password

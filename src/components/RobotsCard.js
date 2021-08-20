@@ -1,23 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import voteService from "../api/VoteService";
 
-const RobotsCard = ({ robot, i, voteFor,buttonTest }) => {
-  const [disabled, setDisabled] = useState(false);
-  const [voteHere, setVoteHere] = useState(null);
+const RobotsCard = ({ robot, i, currentRobot, setCurrentRobot }) => {
+  const [buttonEnabled, setButtonEnabled] = useState(null);
+  const [voteLoading, setVoteLoading] = useState(false);
 
-  const userId = localStorage.getItem("user-id");
-  const robotId = localStorage.getItem("robot-id");
+  useEffect(() => {
+    setButtonEnabled(currentRobot !== robot.id);
+  }, [currentRobot]);
 
+  const voteId = localStorage.getItem("vote-id");
+
+  const vote = async (e) => {
+    try {
+      e.preventDefault();
+      setVoteLoading(true);
+      setButtonEnabled(false);
+      if (currentRobot) {
+        await voteService.deleteVote(voteId);
+      }
+
+      const voteResponse = await voteService.castVote(robot.id);
+
+      setVoteLoading(false);
+      localStorage.setItem("vote-id", voteResponse.data.id);
+      localStorage.setItem("current-robot", voteResponse.data.robot);
+      setCurrentRobot(voteResponse.data.robot);
+    } catch (err) {
+      console.log(err);
+      setVoteLoading(false);
+      setButtonEnabled(currentRobot !== robot.id);
+    }
+  };
 
   return (
     <div className="robots-card" key={i}>
       <h2>{robot.name[0].toUpperCase() + robot.name.slice(1)}</h2>
       <img className="robots-img" src={robot.url} alt="Robots" />
       <button
-        className={disabled ? "btn-vote-casted" : "btn-vote"}
-        disabled={disabled}
-        onClick={(e) => [voteFor(e, robot.id), setDisabled(true)]}
+        className={!buttonEnabled ? "btn-vote-casted" : "btn-vote"}
+        disabled={!buttonEnabled}
+        onClick={(e) => vote(e)}
       >
-        {disabled ? "vote-casted" : "Vote"}
+        {!buttonEnabled ? (voteLoading ? "Voting..." : "Vote Casted") : "Vote"}
       </button>
     </div>
   );

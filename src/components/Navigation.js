@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import mondoRobotLogo from "../assets/mondo-robot-logo.png";
 import "../components/Navigation.css";
 import { FaBars } from "react-icons/fa";
+import adminWhitelist from "../auth/admin-whitelist";
 
 const Navigation = () => {
   const [menu, setMenu] = useState("");
@@ -15,9 +16,22 @@ const Navigation = () => {
   const history = useHistory();
 
   const logout = () => {
-    //clears out token in local storage and routes back to login page.
+    //clears out token in local storage
     window.localStorage.clear();
     history.push("/");
+  };
+
+  const adminNavItem = () => {
+    const userEmail = window.localStorage.getItem("user-email");
+    if (new RegExp(adminWhitelist.join("|")).test(userEmail)) {
+      return (
+        <li>
+          <a className={`navbar-links ${menu}`} href="/admin">
+            Admin
+          </a>
+        </li>
+      );
+    }
   };
 
   return (
@@ -44,11 +58,7 @@ const Navigation = () => {
         </div>
         <div className={`right-nav ${menu}`}>
           <ul>
-            <li>
-              <a className={`navbar-links ${menu}`} href="/admin">
-                Admin
-              </a>
-            </li>
+            {adminNavItem()}
             <li>
               <a
                 className={`navbar-links ${menu}`}

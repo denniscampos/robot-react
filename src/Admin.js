@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { BsUpload } from "react-icons/bs";
 import "./Admin.css";
 import Navigation from "./components/Navigation";
@@ -12,18 +12,18 @@ const Admin = () => {
 
   const url = "https://mondo-robot-art-api.herokuapp.com/robots";
   const API_KEY = process.env.REACT_APP_API_KEY;
-  const history = useHistory();
+  // const history = useHistory();
 
   // grab user token
   const userToken = window.localStorage.getItem("user-token");
 
   // upload image
-  function uploadImage() {
+  const uploadImage = async () => {
     let bodyFormData = new FormData();
     bodyFormData.append("name", imageName);
     bodyFormData.append("image", image);
 
-    axios
+    await axios
       .post(url, bodyFormData, {
         headers: {
           accept: "application/json",
@@ -33,7 +33,9 @@ const Admin = () => {
       })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-  }
+
+    window.location.reload();
+  };
 
   //clear upload form
   const clearForm = () => {
@@ -42,8 +44,8 @@ const Admin = () => {
   };
 
   // Delete Robot
-  const deleteRobot = (id) => {
-    axios
+  const deleteRobot = async (id) => {
+    await axios
       .delete(`${url}/${id}`, {
         headers: {
           Authorization: "Bearer " + userToken,
@@ -51,6 +53,8 @@ const Admin = () => {
       })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+
+    window.location.reload();
   };
 
   // get robots
@@ -93,6 +97,7 @@ const Admin = () => {
           <div className="robots-container">
             <div className="admin-card">
               <h2>Add Robot</h2>
+
               <label className="name-label" htmlFor="name">
                 Name
               </label>
@@ -114,13 +119,6 @@ const Admin = () => {
                   onChange={(e) => setImage(e.target.files[0])}
                 />
               </div>
-
-              {/* <input
-                className="btn-upload"
-                type="file"
-                name="file"
-                onChange={(e) => setImage(e.target.files[0])}
-              /> */}
               <div className="admin-btn">
                 <button className="btn-clear" onClick={clearForm}>
                   Clear

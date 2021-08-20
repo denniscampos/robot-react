@@ -31,8 +31,6 @@ h2 {
   box-shadow: 0px 9px 15px -9px rgba(0, 0, 0, 0.12);
 }
 
-
-
 .robots-img {
   width: 349px;
   height: 321px;
@@ -67,7 +65,7 @@ h2 {
 
 .admin-card h2 {
   font-size: 1.5em;
-  margin: 10px 0 ;
+  margin: 10px 0;
 }
 
 .admin-card {
@@ -104,7 +102,6 @@ h2 {
 
 .name-input {
   display: block;
-  
   margin: 20px 24px;
   padding: 20px 20px;
   border: 1px solid #d8dadb;
@@ -112,7 +109,7 @@ h2 {
   font-size: 22px;
 }
 
-.upload-container{
+.upload-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -125,10 +122,10 @@ h2 {
 }
 
 .upload-icon {
-  display:flex;
+  display: flex;
   margin-left: 50px;
   margin-bottom: 10px;
-  font-size: 50px; 
+  font-size: 50px;
   cursor: pointer;
 }
 
@@ -138,7 +135,7 @@ h2 {
 
 .btn-clear {
   background: #fff;
-  color: #414242; 
+  color: #414242;
   font-size: 1.6rem;
   text-decoration: underline;
   border: none;
@@ -149,7 +146,7 @@ h2 {
   color: #fff;
   border: none;
   margin-right: 10px;
-  margin-left: 50px; 
+  margin-left: 50px;
   border-radius: 8px;
   padding: 16px 55px;
   font-weight: bold;

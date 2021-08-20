@@ -34,6 +34,7 @@ const Login = () => {
       })
       .then((res) => {
         localStorage.setItem("user-token", res.data.token);
+        localStorage.setItem("user-email", email);
         // setIsAuthenticated(true);
         history.push("/robots");
       })
@@ -47,9 +48,9 @@ const Login = () => {
   };
 
   // goes register page route.
-  function handleClick() {
+  const handleClick = () => {
     history.push("/register");
-  }
+  };
 
   return (
     <div className="register-page">
